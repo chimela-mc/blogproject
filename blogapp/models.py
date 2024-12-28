@@ -22,4 +22,4 @@ class Comment(models.Model):
     body = models.TextField(blank=False, null=False)
     time = models.DateTimeField(auto_now_add=True, null=True)
     def __str__(self):
-        return f"Comment by {self.name} on {self.post.title}"
+        return f"Comment by {self.name} on {self.post.title}"T
