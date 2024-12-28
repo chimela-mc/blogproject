@@ -1,0 +1,15 @@
+{% extends 'index2.html' %}
+{% block main%}
+<section>
+  <p class="update-title">Edit post</p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="newAuthor" value="{{post.author}}" placeholder="Author">
+    <input type="text" name="newTitle" value="{{post.title}}" placeholder="Title">
+    <textarea type="text" name="newContent" value="{{post.content}}" placeholder="Type here..." class="block">{{post.content}}</textarea>
+    <div>
+      <button type="submit" id="update-create-button">Update</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

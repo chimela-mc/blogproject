@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1>Programmers' Blog</h1>
+    <a href="{% url 'index' %}">Home</a>
+    <hr>
+  </header>
+  <main>
+    <div class="flex"><h2>BLOG POSTS| </h2><p> <a href="{% url 'publish' %}"> Publish a BLOG POST</a></p></div>
+    {% for post in posts %}
+      <h2><a href="{% url 'post' pk=post.pk%}">{{ post.title }}</a></h2><span>{{ post.time|timesince }} ago| By: {{ post.author }}</span>
+      <p title="{{ post.content }}">{{ post.content | truncatechars:1500 }} </p>
+    {% endfor %}
+  </main>
+</body>
+</html>

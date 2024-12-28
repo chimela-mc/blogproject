@@ -1,0 +1,63 @@
+*{
+  box-sizing: border-box;
+  /* margin: 0; */
+  padding: 0;
+  border-collapse: collapse;
+  font-family: verdana;
+}
+
+/* body{
+  color: white;
+  background-color: black;
+} */
+
+main{
+  margin:0 auto;
+  width: 55vw;
+}
+
+header{
+  text-align: center;
+}
+
+textarea{
+  margin: 20px 0;
+  padding: 5px;
+}
+
+.block{
+  display: block;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+#update-create-button{
+  border: 1px solid black;
+  }
+
+#update-create{
+  width:max-content;
+  margin: 0 auto;
+
+  
+}
+
+.comments{
+  padding: 0 0 0 10px;
+}
+
+.gray{
+  color: rgb(72, 79, 86);
+}
+
+input{
+  padding: 5px;
+}
+
+section{
+  margin-top: 12.5vh;
+  
+}

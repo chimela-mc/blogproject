@@ -1,0 +1,45 @@
+{% extends 'index2.html' %}
+{% block main%}
+  <section>
+    <div class="creation-info">
+      <img src="https://th.bing.com/th?q=Profile+Icon+Transparent&w=42&h=42&c=7&rs=1&p=0&o=5&dpr=1.3&pid=1.7&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1" alt="user-icon" height="40px" width="40px">
+      <div>
+        <p>{{ post.author }}</p>
+        <p>{{ post.time.date}} ({{ post.time|timesince }} ago)</p>
+      </div>
+      <a href="{% url 'update' pk=post.pk %}"><button>Edit</button></a><a href="{% url 'delete' pk=post.pk %}"><button>Delete</button></a>
+    </div>
+    <a href="{% url 'post' pk=post.pk %}"><h2>{{ post.title}}</h2></a>
+    <p title="{{ post.content }}">{{ post.content}}</p>
+    <hr/>
+    <div class="comment">
+      <p>{{post.comments.all.count}} comments</p>
+    </div>
+  </section>
+  
+
+  <section>
+    <h2>Leave a comment:</h2>
+    <form method="post" action="">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Your Name" required>
+      <textarea name="body" id="" placeholder="Leave a comment!" class="block" rows="12.5vh" col="100vw" required></textarea>
+      <div>
+        <button type="submit" id="update-create-button">Submit</button>
+      </div>
+      
+    </form>
+
+  
+    <h2>Comments:</h2>
+    <div class="comments">
+      {% for comment in comments %}
+      <p>
+        <b class="gray">{{ comment.name }}</b><br />
+        <small class="gray">{{ comment.time.date}}:</small><br>
+        <small>{{ comment.body }}</small>
+      </p>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}
